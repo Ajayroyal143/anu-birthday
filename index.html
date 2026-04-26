@@ -42,11 +42,16 @@ html {
   padding: 60px 20px;
   text-align: center;
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
+  transform: translateY(50px);
+  transition: 1s ease;
   padding: 80px 20px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section p {
   font-size: 1.1rem;
 }
@@ -275,10 +280,11 @@ img, video {
     <div class="box"></div>
   </div>
 
-  <p id="giftMessage" style="display:none; margin-top:20px;">
-    You didn’t just become my best friend…
-you became my habit, my comfort, and my favorite person 💖
-  </p>
+  <p id="giftMessage" style="display:none; font-size:1.2rem;">
+I didn’t know back then…  
+that one random conversation  
+would turn into 6 years of having you in my life 💖
+</p>
 </div>>
 
 <!-- GALLERY -->
@@ -307,11 +313,21 @@ These are the moments where I looked at you and thought…
   <div class="img-box">
     <img src="photos/anu11.jpeg">
     <p>Always glowing 🌸</p>
+
+    <p style="max-width:500px; margin:auto; margin-top:20px;">
+You don’t even realize how many times  
+you’ve made my day better just by being you 💫
+</p>
   </div>
 </div>
 
 <div class="section">
   <h2>For You 🎬</h2>
+  <p style="max-width:500px; margin:auto;">
+So I tried doing something different this time…  
+not just remembering moments,  
+but recreating them 🎬
+</p>
   <p style="max-width:500px; margin:auto;">
     I made these just for you… hope you like them 💖
   </p>
@@ -331,8 +347,9 @@ These are the moments where I looked at you and thought…
     <p style="max-width:500px; margin:auto;">
 It all started with a simple message… and somehow became something really special 💖
 </p>
-    <div style="color:#ff4081; font-weight:bold;">
-Feb 18, 2020 – The day everything started 💬
+    <div style="font-size:1.2rem; color:#ff4081;">
+Feb 18, 2020  
+— the day a simple chat turned into something I never expected 💬
 </div>
     <div>2021 – From strangers to daily chats </div>
     <div>2022 – Laughing at the most random things 😂</div>
@@ -372,17 +389,20 @@ Feb 18, 2020 – The day everything started 💬
 
 <!-- MESSAGE -->
 <div class="section">
-  <h2>One Last Thing ❤️</h2>
+  <h2>And yeah… ❤️</h2>
 
-<p style="max-width:600px; margin:auto; line-height:1.6;">
-Out of all the random moments, conversations, and memories…  
-you became someone I never want to lose.
+<p style="max-width:600px; margin:auto; line-height:1.7;">
+Out of all the random people, moments, and memories…  
+you stayed.
 
-6 years later…  
-and you’re still my favorite person.
+6 years later,  
+and you’re still the one I enjoy talking to the most.
+
+I don’t say it enough,  
+but I really appreciate having you in my life.
 
 Happy Birthday Anu 🎂  
-I hope this made you smile, even a little 💖
+I hope this made you smile… even a little 💖
 </p>
 </div>
 
@@ -452,9 +472,9 @@ const sections = document.querySelectorAll(".section");
 window.addEventListener("scroll", () => {
   sections.forEach(sec => {
     let top = sec.getBoundingClientRect().top;
+
     if (top < window.innerHeight - 100) {
-      sec.style.opacity = 1;
-      sec.style.transform = "translateY(0)";
+      sec.classList.add("show");
     }
   });
 });
