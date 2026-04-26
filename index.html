@@ -285,7 +285,7 @@ img, video {
 <div id="main" class="hidden">
 
 <!-- MUSIC BUTTON -->
-<div class="music-btn" onclick="toggleMusic()">🎵</div>
+<div class="music-btn" onclick="toggleMusic()">🌷🎵</div>
 <audio id="music" loop>
   <source src="music.mp3">
 </audio>
@@ -464,6 +464,21 @@ setInterval(() => {
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 5000);
 }, 300);
+
+setInterval(() => {
+  let flower = document.createElement("div");
+  flower.innerHTML = "🌷";
+  flower.style.position = "fixed";
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.bottom = "-20px";
+  flower.style.fontSize = "18px";
+  flower.style.opacity = 0.8;
+  flower.style.animation = "floatUp 6s linear";
+
+  document.body.appendChild(flower);
+
+  setTimeout(() => flower.remove(), 6000);
+}, 800);
 
 /* GIFT BOX */
 function openGift(el) {
