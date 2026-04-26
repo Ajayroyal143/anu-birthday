@@ -55,6 +55,14 @@ html {
 .section p {
   font-size: 1.1rem;
 }
+
+.slide.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1.05);
+  transition: 2s;
+}
+
 h1, h2 {
   color: #ff4081;
   text-shadow: 0 0 10px rgba(255,64,129,0.7);
@@ -186,6 +194,12 @@ img, video {
   transform: rotate(-30deg) translateY(-20px);
 }
 
+.highlight {
+  color: #ff4081;
+  font-weight: bold;
+}
+
+
 /* SLIDESHOW */
 .slideshow {
   max-width: 300px;
@@ -242,6 +256,17 @@ img, video {
 
 .video-gallery video:hover {
   transform: scale(1.05);
+}
+
+#giftMessage {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: 1s;
+}
+
+#giftMessage.show {
+  opacity: 1;
 }
 
 </style>
@@ -302,7 +327,7 @@ Not just photos… these are pieces of time I never want to forget 💖
 </div>
 <p style="max-width:500px; margin:auto;">
 These are the moments where I looked at you and thought…
-“yeah, she’s genuinely special” 💖
+<span class="highlight">you’re genuinely special</span> 💖
 </p>
 <div class="memories beautiful">
   <div class="img-box">
@@ -337,6 +362,9 @@ but recreating them 🎬
     <video controls src="video2.mp4"></video>
     <video controls src="video3.mp4"></video>
   </div>
+  <p style="opacity:0.7;">
+Some memories fade… but not these.
+</p>
 </div>
 
 <!-- TIMELINE -->
@@ -344,6 +372,9 @@ but recreating them 🎬
   <h2>Our Story 🕰️</h2>
 
   <div class="timeline">
+    <p style="opacity:0.7;">
+And somehow… it all started here ↓
+</p>
     <p style="max-width:500px; margin:auto;">
 It all started with a simple message… and somehow became something really special 💖
 </p>
@@ -392,14 +423,13 @@ Feb 18, 2020
   <h2>And yeah… ❤️</h2>
 
 <p style="max-width:600px; margin:auto; line-height:1.7;">
-Out of all the random people, moments, and memories…  
-you stayed.
+It’s kind of crazy…  
 
-6 years later,  
-and you’re still the one I enjoy talking to the most.
+how one conversation turned into 6 years  
+of having you in my life.
 
-I don’t say it enough,  
-but I really appreciate having you in my life.
+And out of everything,  
+you’re still the person I enjoy the most.
 
 Happy Birthday Anu 🎂  
 I hope this made you smile… even a little 💖
@@ -441,20 +471,10 @@ function openGift(el) {
 
   let msg = document.getElementById("giftMessage");
   msg.style.display = "block";
-  msg.style.animation = "fadeIn 1.5s ease";
 
-  // small confetti effect
-  for (let i = 0; i < 20; i++) {
-    let heart = document.createElement("div");
-    heart.innerHTML = "💖";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "50%";
-    heart.style.fontSize = "20px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 2000);
-  }
+  setTimeout(() => {
+    msg.classList.add("show");
+  }, 300);
 }
 
 /* SLIDESHOW */
