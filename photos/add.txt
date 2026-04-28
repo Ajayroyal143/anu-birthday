@@ -15,7 +15,7 @@
   --dark2: #1a1a2e;
 }
 
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -253,7 +253,11 @@ img, video { max-width: 90%; }
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-.slide.active { display: block; opacity: 1; }
+.slide.active { 
+  display: block; opacity: 1;
+  transform: scale(1.04);
+  transition: 2s;
+}
 
 /* MEMORIES GRID */
 .memories {
@@ -585,15 +589,10 @@ img, video { max-width: 90%; }
   box-shadow: 0 10px 28px var(--pink-glow);
 }
 
-.card:active {
-  background: var(--pink);
-  border-color: var(--pink);
-  transform: scale(0.97);
+.highlight {
+  color: var(--pink);
+  font-weight: 600;
 }
-.video-open-btn:active { opacity: 0.8; transform: scale(0.97); }
-.gift-box:active { transform: scale(0.95); }
-.playlist-item:active { background: rgba(255,64,129,0.15); }
-
 
 /* FINAL SECTION */
 #finalSection {
@@ -662,144 +661,6 @@ img, video { max-width: 90%; }
 /* KEYFRAMES */
 @keyframes fadeIn { from { opacity:0; transform: scale(0.95); } to { opacity:1; transform: scale(1); } }
 @keyframes blink  { 0%, 100% { opacity:1; } 50% { opacity:0; } }
-
-/* ═══════════════════════════════
-   MOBILE — everything ≤ 640px
-═══════════════════════════════ */
-@media (max-width: 640px) {
-
-  /* General sections */
-  .section {
-    padding: 70px 18px;
-  }
-
-  h1 { font-size: 1.9rem; }
-  h2 { font-size: 1.5rem; }
-  .section p { font-size: 0.97rem; }
-
-  /* Entry screen */
-  #entry { gap: 22px; }
-  #entry h1 { font-size: 2rem; text-align: center; padding: 0 16px; }
-  #entry .subtitle { font-size: 0.78rem; letter-spacing: 1.5px; text-align: center; }
-  #entry button { padding: 14px 32px; font-size: 13px; letter-spacing: 2px; }
-
-  /* Music button — smaller, no clipping */
-  .music-btn {
-    top: 12px; right: 12px;
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-
-  /* Hero */
-  .hero { padding: 0 20px; text-align: center; gap: 16px; }
-  .hero h1 { font-size: 2rem; }
-  .hero p  { font-size: 1rem; }
-
-  /* Gift box */
-  .gift-box { width: 86px; height: 86px; }
-  .lid { height: 24px; top: -24px; }
-  #giftMessage { font-size: 1rem; padding: 0 10px; }
-
-  /* Slideshow */
-  .slideshow { max-width: 88vw; }
-
-  /* Memories grid — single column */
-  .memories { flex-direction: column; align-items: center; gap: 16px; }
-  .img-box img { width: 80vw; max-width: 300px; }
-
-  /* Video open button */
-  .video-open-btn {
-    padding: 14px 28px;
-    font-size: 13px;
-    letter-spacing: 2px;
-  }
-
-  /* Cinema modal — full screen, stacked */
-  #videoModal { padding: 0; align-items: flex-end; }
-
-  #cinemaBg {
-    width: 100%;
-    max-width: 100%;
-    height: 96vh;
-    border-radius: 20px 20px 0 0;
-    border-bottom: none;
-  }
-
-  #cinemaTopBar { padding: 12px 16px; }
-  #cinemaTopBar h3 { font-size: 0.88rem; }
-
-  /* Stack: player on top, playlist scrolls below */
-  #cinemaBody { flex-direction: column; }
-
-  #cinemaPlayer { flex: none; }
-  #cinemaVideo {
-    max-height: 38vh;
-    width: 100%;
-    object-fit: contain;
-  }
-
-  #cinemaPlayerMeta { padding: 10px 14px; }
-  #cinemaPlayerTitle { font-size: 0.9rem; }
-  #cinemaPlayerSub   { font-size: 0.74rem; }
-
-  /* Playlist — horizontal scrollable strip on mobile */
-  #cinemaPlaylist {
-    width: 100%;
-    max-height: 42vh;
-    border-left: none;
-    border-top: 1px solid rgba(255,64,129,0.12);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .playlist-header { font-size: 0.65rem; padding: 10px 14px; }
-
-  .playlist-item { padding: 10px 12px; gap: 8px; }
-  .playlist-icon { width: 30px; height: 30px; font-size: 0.9rem; border-radius: 7px; }
-  .playlist-title { font-size: 0.76rem; }
-  .playlist-sub   { font-size: 0.65rem; }
-  .playlist-num   { font-size: 0.65rem; width: 16px; }
-
-  /* Timeline — left-align with tighter padding */
-  .timeline { max-width: 100%; padding-left: 20px; margin: 16px 10px; }
-  .timeline-item { padding: 10px 0 10px 16px; }
-  .timeline-item::before { left: -27px; width: 8px; height: 8px; }
-  .timeline-item .year { font-size: 0.92rem; }
-  .timeline-item .desc { font-size: 0.88rem; }
-
-  /* Open When cards — full width on mobile */
-  .cards { flex-direction: column; align-items: center; }
-  .card { width: 85vw; max-width: 320px; padding: 18px 20px; font-size: 0.9rem; }
-
-  /* What You Mean section */
-  .section p { padding: 0 4px; }
-
-  /* Typewriter final section */
-  #typewriterText {
-    font-size: 0.97rem;
-    line-height: 2;
-    padding: 0 8px;
-    min-height: 140px;
-  }
-
-  /* Open When modal */
-  #modalBox {
-    margin: 16px;
-    padding: 36px 24px;
-    font-size: 1.05rem;
-    border-radius: 18px;
-    max-width: 92vw;
-  }
-
-  /* Reduce floating hearts/flowers on mobile for performance */
-  .heart, .flower-float { display: none; }
-}
-
-/* Slightly wider phones (iPhone Plus, etc.) */
-@media (min-width: 390px) and (max-width: 640px) {
-  .heart, .flower-float { display: block; }
-}
-
 </style>
 </head>
 
@@ -859,6 +720,7 @@ would turn into 6 years of having you in my life 💖
     <img class="slide" src="photos/anu9.jpeg">
     <img class="slide" src="photos/anu10.jpeg">
   </div>
+
   <p style="max-width:480px; margin:30px auto 0;">
     These are the moments where I looked at you and thought…
     <span class="highlight">you're genuinely special</span> 💖
@@ -888,7 +750,7 @@ would turn into 6 years of having you in my life 💖
     not just remembering moments, but recreating them 🎬
   </p>
   <p style="max-width:480px; margin:12px auto 0;">
-    10 videos made just for you — tap below to open 💖
+    Some videos made just for you — tap below to open 💖
   </p>
   <br>
   <button class="video-open-btn" onclick="openCinema(0)">▶ &nbsp; Watch All Videos</button>
